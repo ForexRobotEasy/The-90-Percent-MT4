@@ -1,0 +1,77 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                             The 90 Percent MT4    |
+//|                         Developed by Forex Robot Easy Team        |
+//|                                   https://www.forexroboteasy.com  |
+//+------------------------------------------------------------------+
+
+// Risk management feature
+input double riskLevel = 0.02; // Default risk level of 2%
+double lotSize;
+double accountBalance;
+
+// Calculate lot size based on risk level and account balance
+void CalculateLotSize()
+{
+    lotSize = accountBalance * riskLevel / 1000;
+}
+
+// Set stop loss and take profit levels
+input double stopLoss = 50; // Default stop loss level of 50 pips
+input double takeProfit = 100; // Default take profit level of 100 pips
+
+// Adjust stop loss and take profit levels based on risk level
+void AdjustStopLossTakeProfit()
+{
+    stopLoss += riskLevel * 10;
+    takeProfit += riskLevel * 20;
+}
+
+// User-friendly interface for trading
+void DisplayMarketData()
+{
+    // Display real-time market data
+}
+
+// Place buy and sell orders
+void PlaceOrders()
+{
+    // Place buy and sell orders directly from the software
+}
+
+// Execute trades at the best available market prices
+void ExecuteTrades()
+{
+    // Execute trades at the best available market prices
+}
+
+// Provide real-time trade execution feedback
+void ProvideTradeFeedback()
+{
+    // Provide order confirmations and trade status updates
+}
+
+// Main function
+void OnTick()
+{
+    // Get account balance
+    accountBalance = AccountInfoDouble(ACCOUNT_BALANCE);
+
+    // Calculate lot size
+    CalculateLotSize();
+
+    // Adjust stop loss and take profit levels
+    AdjustStopLossTakeProfit();
+
+    // Display market data
+    DisplayMarketData();
+
+    // Place orders
+    PlaceOrders();
+
+    // Execute trades
+    ExecuteTrades();
+
+    // Provide trade feedback
+    ProvideTradeFeedback();
+}
